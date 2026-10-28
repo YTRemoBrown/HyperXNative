@@ -17,6 +17,17 @@
         android:gravity="center"
         android:layout_marginBottom="24dp"/>
 
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Instructions: For 'Modify System Settings', tap 'Grant Access' then go to 3 dots (top right) and select 'Allow restricted settings'"
+        android:textColor="#FFA500"
+        android:textSize="12sp"
+        android:layout_marginBottom="16dp"
+        android:background="#1A1A1A"
+        android:padding="8dp"/>
+
     <!-- بطاقة تعديل النظام -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

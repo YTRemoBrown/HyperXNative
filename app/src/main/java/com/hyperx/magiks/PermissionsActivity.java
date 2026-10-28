@@ -26,17 +26,17 @@ public class PermissionsActivity extends AppCompatActivity {
         Button btnBatteryOpt = findViewById(R.id.btn_battery_opt);
         Button btnNotifications = findViewById(R.id.btn_notifications);
 
-        // 1. طلب صلاحية الكتابة على النظام (الفتح المباشر لتطبيقنا)
+        // 1. طلب صلاحية الكتابة على النظام (يدوياً)
         btnWriteSettings.setOnClickListener(v -> {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (!Settings.System.canWrite(this)) {
-                    // هذه هي الطريقة التي تفتح صفحة التطبيق مباشرة
-                    Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
+                if (Settings.System.canWrite(this)) {
+                    Toast.makeText(this, "الصلاحية ممنوحة مسبقاً!", Toast.LENGTH_SHORT).show();
+                } else {
+                    // فتح شاشة معلومات التطبيق مباشرة
+                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
                     intent.setData(Uri.parse("package:" + getPackageName()));
                     startActivity(intent);
-                    Toast.makeText(this, "ابحث عن HyperX وفعل الخيار", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(this, "الصلاحية ممنوحة مسبقاً!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "اضغط على 3 نقاط (⋮) -> Allow restricted settings", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -50,7 +50,7 @@ public class PermissionsActivity extends AppCompatActivity {
             }
         });
 
-        // 3. طلب صلاحية الإشعارات (Android 13+)
+        // 3. طلب صلاحية الإشعارات
         btnNotifications.setOnClickListener(v -> {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
@@ -61,18 +61,16 @@ public class PermissionsActivity extends AppCompatActivity {
             }
         });
 
-        // تحديث حالة الأزرار عند فتح الشاشة
+        // تحديث حالة الأزرار
         updateButtonStates(btnWriteSettings, btnBatteryOpt, btnNotifications);
     }
 
     private void updateButtonStates(Button write, Button battery, Button notif) {
-        // حالة الكتابة على النظام
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && Settings.System.canWrite(this)) {
             write.setText("✅ Granted / ممنوح");
             write.setBackgroundTintList(android.content.res.ColorStateList.valueOf(0xFF00FF00));
         }
 
-        // حالة البطارية
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             android.os.PowerManager pm = (android.os.PowerManager) getSystemService(POWER_SERVICE);
             if (pm != null && pm.isIgnoringBatteryOptimizations(getPackageName())) {
@@ -81,7 +79,6 @@ public class PermissionsActivity extends AppCompatActivity {
             }
         }
 
-        // حالة الإشعارات
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {
                 notif.setText("✅ Granted / ممنوح");
@@ -93,11 +90,10 @@ public class PermissionsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // تحديث حالة الأزرار عند العودة للتطبيق
         Button btnWriteSettings = findViewById(R.id.btn_write_settings);
         Button btnBatteryOpt = findViewById(R.id.btn_battery_opt);
         Button btnNotifications = findViewById(R.id.btn_notifications);
-        if (btnWriteSettings != null && btnBatteryOpt != null && btnNotifications != null) {
+        if (btnWriteSettings != null) {
              updateButtonStates(btnWriteSettings, btnBatteryOpt, btnNotifications);
         }
     }
