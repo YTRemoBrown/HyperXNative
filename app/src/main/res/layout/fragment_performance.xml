@@ -10,7 +10,6 @@
         android:orientation="vertical"
         android:padding="16dp">
         
-        <!-- الشريط العلوي مع شعار التطبيق الجديد -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -18,11 +17,6 @@
             android:gravity="center"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="4dp">
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/hxx"
-                android:layout_marginEnd="8dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -61,13 +55,12 @@
             android:gravity="center"
             android:layout_marginBottom="16dp"/>
 
-        <!-- قسم الأداء -->
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/section_performance" android:textColor="#FF6F06" android:textStyle="bold" android:layout_marginBottom="8dp"/>
 
         <!-- 1. FPS Unlocker -->
         <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="#1A1A1A" app:cardCornerRadius="12dp" android:layout_marginBottom="8dp">
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
-                <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/newi_1" app:tint="#FF6F06"/>
+                <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@android:drawable/ic_menu_gallery" app:tint="#FF6F06"/>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="16dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="FPS Unlocker" android:textColor="#FFFFFF" android:textStyle="bold"/>
                 </LinearLayout>
@@ -78,7 +71,7 @@
         <!-- 2. GPU Optimizer -->
         <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="#1A1A1A" app:cardCornerRadius="12dp" android:layout_marginBottom="8dp">
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
-                <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/newi_2" app:tint="#FF6F06"/>
+                <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@android:drawable/ic_menu_compass" app:tint="#FF6F06"/>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="16dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="GPU Optimizer" android:textColor="#FFFFFF" android:textStyle="bold"/>
                 </LinearLayout>
@@ -89,7 +82,7 @@
         <!-- 3. Thermal Controller -->
         <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="#1A1A1A" app:cardCornerRadius="12dp" android:layout_marginBottom="8dp">
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
-                <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/newi_3" app:tint="#FF6F06"/>
+                <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@android:drawable/ic_menu_myplaces" app:tint="#FF6F06"/>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="16dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Thermal Controller" android:textColor="#FFFFFF" android:textStyle="bold"/>
                 </LinearLayout>
@@ -100,7 +93,7 @@
         <!-- 4. RAM Booster -->
         <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="#1A1A1A" app:cardCornerRadius="12dp" android:layout_marginBottom="8dp">
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
-                <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/newi_4" app:tint="#FF6F06"/>
+                <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@android:drawable/ic_menu_manage" app:tint="#FF6F06"/>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="16dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="RAM Booster" android:textColor="#FFFFFF" android:textStyle="bold"/>
                 </LinearLayout>
@@ -111,7 +104,7 @@
         <!-- 5. CPU Turbo -->
         <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="#1A1A1A" app:cardCornerRadius="12dp" android:layout_marginBottom="8dp">
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
-                <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/hsbs" app:tint="#FF6F06"/>
+                <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@android:drawable/ic_menu_sort_by_size" app:tint="#FF6F06"/>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="16dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CPU Turbo" android:textColor="#FFFFFF" android:textStyle="bold"/>
                 </LinearLayout>
@@ -122,7 +115,7 @@
         <!-- 6. Network Boost -->
         <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="#1A1A1A" app:cardCornerRadius="12dp" android:layout_marginBottom="8dp">
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
-                <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_language_white" app:tint="#FF6F06"/>
+                <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@android:drawable/ic_menu_share" app:tint="#FF6F06"/>
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="16dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Network Boost" android:textColor="#FFFFFF" android:textStyle="bold"/>
                 </LinearLayout>
@@ -131,42 +124,6 @@
         </androidx.cardview.widget.CardView>
 
         <!-- (باقي الأزرار) -->
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/section_rendering" android:textColor="#FF6F06" android:textStyle="bold" android:layout_marginTop="16dp" android:layout_marginBottom="8dp"/>
-
-        <!-- 7. SkiaGL -->
-        <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="#1A1A1A" app:cardCornerRadius="12dp" android:layout_marginBottom="8dp">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
-                <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/revox_1" app:tint="#FF6F06"/>
-                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="16dp">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SkiaGL Render" android:textColor="#FFFFFF" android:textStyle="bold"/>
-                </LinearLayout>
-                <Switch android:id="@+id/switch_skiagl" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <!-- 8. Vulkan -->
-        <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="#1A1A1A" app:cardCornerRadius="12dp" android:layout_marginBottom="8dp">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
-                <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/revox_2" app:tint="#FF6F06"/>
-                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="16dp">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Vulkan Render" android:textColor="#FFFFFF" android:textStyle="bold"/>
-                </LinearLayout>
-                <Switch android:id="@+id/switch_vulkan" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        
-        <!-- 9. Ultra Graphics -->
-        <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="#1A1A1A" app:cardCornerRadius="12dp" android:layout_marginBottom="8dp">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
-                <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/icon" app:tint="#FF6F06"/>
-                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="16dp">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ultra Graphics" android:textColor="#FFFFFF" android:textStyle="bold"/>
-                </LinearLayout>
-                <Switch android:id="@+id/switch_ultra" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <!-- (باقي الأقسام) -->
         
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
