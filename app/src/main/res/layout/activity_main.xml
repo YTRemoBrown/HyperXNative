@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0A0A">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="HyperX Turbo" android:textColor="#FF6F06" android:textSize="24sp" android:textStyle="bold" android:gravity="center" android:paddingBottom="16dp"/>
+        
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Performance" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" android:paddingTop="8dp" android:paddingBottom="8dp"/>
+        <Switch android:id="@+id/switch_fps" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="FPS Unlocker" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+        <Switch android:id="@+id/switch_gpu" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="GPU Optimizer" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+        <Switch android:id="@+id/switch_thermal" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Thermal Controller" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+        <Switch android:id="@+id/switch_ram" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="RAM Booster" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+        <Switch android:id="@+id/switch_cpu" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="CPU Turbo" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+        <Switch android:id="@+id/switch_network" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Network Boost" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Rendering" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" android:paddingTop="16dp" android:paddingBottom="8dp"/>
+        <Switch android:id="@+id/switch_skiagl" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="SkiaGL Render" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+        <Switch android:id="@+id/switch_vulkan" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Vulkan Render" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+        <Switch android:id="@+id/switch_ultra" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ultra Graphics" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+        <Switch android:id="@+id/switch_aa" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Anti-Aliasing" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+        <Switch android:id="@+id/switch_hdr" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="HDR Mode" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Touch" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" android:paddingTop="16dp" android:paddingBottom="8dp"/>
+        <Switch android:id="@+id/switch_touch" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Touch Sensitivity" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+        <Switch android:id="@+id/switch_aim" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Aim Assistant" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+        <Switch android:id="@+id/switch_gyro" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Gyro Optimizer" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+        <Switch android:id="@+id/switch_multitouch" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Multi-Touch" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="System" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" android:paddingTop="16dp" android:paddingBottom="8dp"/>
+        <Switch android:id="@+id/switch_battery" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Battery Saver" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+        <Switch android:id="@+id/switch_doze" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Doze Mode" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+        <Switch android:id="@+id/switch_cleaner" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="System Cleaner" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+        <Switch android:id="@+id/switch_adb" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="ADB Debugger" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+        <Switch android:id="@+id/switch_120fps" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Force 120FPS" android:textColor="#FFFFFF" android:padding="12dp" android:background="#171717" android:layout_marginBottom="8dp"/>
+    </LinearLayout>
+</ScrollView>
