@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HyperX</string>
+    <string name="nav_performance">الأداء</string>
+    <string name="nav_settings">الإعدادات</string>
+    <string name="section_performance">⚡ الأداء</string>
+    <string name="section_rendering">🎮 الرسوميات</string>
+    <string name="section_touch">🖐 اللمس</string>
+    <string name="section_system">⚙️ النظام</string>
+    <string name="permissions_btn">الصلاحيات المطلوبة</string>
+    <string name="shizuku_status">جاري فحص Shizuku...</string>
+    <string name="app_description">تطبيق HyperX هو أداة آمنة لتحسين أداء الألعاب على جهاز الأندرويد. من خلال ضبط إعدادات النظام، يساعد التطبيق على رفع معدل الإطارات وتجربة لعب أكثر سلاسة. الاستخدام على مسؤولية المستخدم.</string>
+    <string name="version_text">الإصدار 3.0.0</string>
+    <string name="lang_switch">اللغة</string>
+    <string name="dark_mode">الوضع المظلم</string>
+    <string name="grant_access">منح الصلاحية</string>
+    <string name="modify_settings">تعديل إعدادات النظام</string>
+    <string name="modify_settings_desc">السماح بتعديل إعدادات النظام لتفعيل تحسينات الألعاب المتقدمة.</string>
+    <string name="battery_opt">تجاهل تحسين البطارية</string>
+    <string name="battery_opt_desc">السماح للتطبيق بالعمل في الخلفية دون قيود.</string>
+</resources>
