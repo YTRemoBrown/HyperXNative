@@ -8,7 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.widget.Button;
-import androidx.annotation.NonNull;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -26,13 +26,17 @@ public class PermissionsActivity extends AppCompatActivity {
         Button btnBatteryOpt = findViewById(R.id.btn_battery_opt);
         Button btnNotifications = findViewById(R.id.btn_notifications);
 
-        // 1. طلب صلاحية الكتابة على النظام
+        // 1. طلب صلاحية الكتابة على النظام (الفتح المباشر لتطبيقنا)
         btnWriteSettings.setOnClickListener(v -> {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (!Settings.System.canWrite(this)) {
+                    // هذه هي الطريقة التي تفتح صفحة التطبيق مباشرة
                     Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
                     intent.setData(Uri.parse("package:" + getPackageName()));
                     startActivity(intent);
+                    Toast.makeText(this, "ابحث عن HyperX وفعل الخيار", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(this, "الصلاحية ممنوحة مسبقاً!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -51,18 +55,20 @@ public class PermissionsActivity extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, REQ_NOTIFICATIONS);
+                } else {
+                    Toast.makeText(this, "الإشعارات مفعلة مسبقاً!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        // تحديث حالة الأزرار
+        // تحديث حالة الأزرار عند فتح الشاشة
         updateButtonStates(btnWriteSettings, btnBatteryOpt, btnNotifications);
     }
 
     private void updateButtonStates(Button write, Button battery, Button notif) {
         // حالة الكتابة على النظام
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && Settings.System.canWrite(this)) {
-            write.setText("✅ Granted");
+            write.setText("✅ Granted / ممنوح");
             write.setBackgroundTintList(android.content.res.ColorStateList.valueOf(0xFF00FF00));
         }
 
@@ -70,7 +76,7 @@ public class PermissionsActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             android.os.PowerManager pm = (android.os.PowerManager) getSystemService(POWER_SERVICE);
             if (pm != null && pm.isIgnoringBatteryOptimizations(getPackageName())) {
-                battery.setText("✅ Granted");
+                battery.setText("✅ Granted / ممنوح");
                 battery.setBackgroundTintList(android.content.res.ColorStateList.valueOf(0xFF00FF00));
             }
         }
@@ -78,12 +84,12 @@ public class PermissionsActivity extends AppCompatActivity {
         // حالة الإشعارات
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {
-                notif.setText("✅ Granted");
+                notif.setText("✅ Granted / ممنوح");
                 notif.setBackgroundTintList(android.content.res.ColorStateList.valueOf(0xFF00FF00));
             }
         }
     }
-    
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -91,7 +97,7 @@ public class PermissionsActivity extends AppCompatActivity {
         Button btnWriteSettings = findViewById(R.id.btn_write_settings);
         Button btnBatteryOpt = findViewById(R.id.btn_battery_opt);
         Button btnNotifications = findViewById(R.id.btn_notifications);
-        if (btnWriteSettings != null) {
+        if (btnWriteSettings != null && btnBatteryOpt != null && btnNotifications != null) {
              updateButtonStates(btnWriteSettings, btnBatteryOpt, btnNotifications);
         }
     }
