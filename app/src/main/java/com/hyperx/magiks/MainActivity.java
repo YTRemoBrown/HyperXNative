@@ -8,13 +8,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import rikka.shizuku.Shizuku;
-import rikka.shizuku.ShizukuBinderWrapper;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final int SHIZUKU_PERMISSION_CODE = 1001;
 
-    // مستمع لنتيجة طلب الصلاحية
     private final Shizuku.OnRequestPermissionResultListener permissionListener = 
             new Shizuku.OnRequestPermissionResultListener() {
         @Override
@@ -22,8 +20,10 @@ public class MainActivity extends AppCompatActivity {
             if (requestCode == SHIZUKU_PERMISSION_CODE) {
                 if (grantResult == PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(MainActivity.this, "✅ تم منح صلاحية Shizuku بنجاح!", Toast.LENGTH_LONG).show();
+                    updateShizukuStatus();
                 } else {
                     Toast.makeText(MainActivity.this, "❌ تم رفض صلاحية Shizuku.", Toast.LENGTH_LONG).show();
+                    updateShizukuStatus();
                 }
             }
         }
@@ -34,14 +34,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 1. تسجيل مستمع الصلاحية
         Shizuku.addRequestPermissionResultListener(permissionListener);
-
-        // 2. طلب الصلاحية تلقائياً عند فتح التطبيق
         requestShizukuPermission();
         updateShizukuStatus();
-
-        // 3. ربط الأزرار الـ 20
         setupAllSwitches();
     }
 
@@ -61,6 +56,24 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void updateShizukuStatus() {
+        TextView statusText = findViewById(R.id.tv_shizuku_status);
+        if (statusText != null) {
+            if (Shizuku.pingBinder()) {
+                if (Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED) {
+                    statusText.setText("✅ Shizuku مفعل ومصرح له");
+                    statusText.setTextColor(android.graphics.Color.parseColor("#00FF00"));
+                } else {
+                    statusText.setText("⚠️ Shizuku يعمل ولكن الصلاحية مرفوضة");
+                    statusText.setTextColor(android.graphics.Color.parseColor("#FFA500"));
+                }
+            } else {
+                statusText.setText("❌ Shizuku غير مثبت أو لا يعمل");
+                statusText.setTextColor(android.graphics.Color.parseColor("#FF0000"));
+            }
+        }
+    }
+
     private void setupAllSwitches() {
         int[] switches = {
             R.id.switch_fps, R.id.switch_gpu, R.id.switch_thermal, R.id.switch_ram, R.id.switch_cpu, R.id.switch_network,
@@ -73,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
             Switch sw = findViewById(id);
             if (sw != null) {
                 sw.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                    // TODO: هذا هو المكان الذي ستضع فيه السكربتات لاحقاً
                     if (isChecked) {
                         Toast.makeText(this, sw.getText() + " مفعل (سيتم إضافة السكربت قريباً)", Toast.LENGTH_SHORT).show();
                     } else {
@@ -81,20 +93,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-        }
-    }
-
-    // دالة لتنفيذ أوامر الشل (سنستخدمها لاحقاً في السكربتات)
-    private void executeShizukuCommand(String command) {
-        if (Shizuku.checkSelfPermission() != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "الرجاء منح صلاحية Shizuku أولاً!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        try {
-            // تنفيذ الأمر كـ Shizuku Shell
-            new ProcessBuilder("sh", "-c", command).start();
-        } catch (Exception e) {
-            Toast.makeText(this, "خطأ: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
