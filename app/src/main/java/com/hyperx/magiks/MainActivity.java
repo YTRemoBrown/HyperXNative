@@ -3,6 +3,7 @@ package com.hyperx.magiks;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         // 2. طلب الصلاحية تلقائياً عند فتح التطبيق
         requestShizukuPermission();
+        updateShizukuStatus();
 
         // 3. ربط الأزرار الـ 20
         setupAllSwitches();
