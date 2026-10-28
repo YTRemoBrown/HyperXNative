@@ -2,6 +2,7 @@ package com.hyperx.magiks;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.content.Intent;
 import android.view.animation.AnimationUtils;
 import android.view.View;
 import android.widget.Switch;
@@ -44,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
         Shizuku.addRequestPermissionResultListener(permissionListener);
         requestShizukuPermission();
         updateShizukuStatus();
+        
+        // ربط زر الصلاحيات
+        findViewById(R.id.btn_permissions).setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, PermissionsActivity.class);
+            startActivity(intent);
+        });
+
         setupAllSwitches();
     }
 
