@@ -2,6 +2,8 @@ package com.hyperx.magiks;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.animation.AnimationUtils;
+import android.view.View;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        // إضافة أنيميشن الدخول
+        View rootView = findViewById(android.R.id.content);
+        rootView.setAlpha(0f);
+        rootView.animate().alpha(1f).setDuration(800).start();
 
         Shizuku.addRequestPermissionResultListener(permissionListener);
         requestShizukuPermission();
